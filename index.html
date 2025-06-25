@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Kling-Foley">
+    <meta property="og:title" content="Kling-Foley"/>
+    <meta property="og:description" content="Kling-Foley: Multimodal Diffusion Transformer for High-Quality Video-to-Audio Generation"/>
+    <meta property="og:url" content="https://video2audio.github.io/Kling-Foley/"/>
+    <meta property="og:image" content="static/image/kling.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta name="twitter:title" content="Kling-Foley">
+    <meta name="twitter:description" content="Kling-Foley: Multimodal Diffusion Transformer for High-Quality Video-to-Audio Generation">
+    <meta name="twitter:image" content="static/images/kling.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="Image-to-Video">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kling-Foley</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/image/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/image/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/image/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="static/image/favicon_io/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <style>
+        .big-video, .mid-video, .small-video {
+            display: block;
+            background: #fff;
+            object-fit: cover;
+            margin-bottom: 8px;
+            /* 保证视频不会自动居中 */
+        }
+        
+        .big-video { width: 650px; height: 370px; }
+        .mid-video, .small-video { width: 850px; height: 500px; }
+        
+        .video-item {
+            display: flex;
+            justify-content: flex-start; /* 左对齐 */
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2em;
+        }
+        
+        .video-item .column {
+            width: 50%;
+            padding: 0 10px 0 0; /* 右侧留空隙，左对齐 */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 保证内容左对齐 */
+        }
+        
+        .video-item .column:only-child {
+            width: 50%; /* 单视频和双视频宽度一致，左对齐 */
+        }
+        
+        .caption {
+            margin-top: 8px;
+            font-size: 1em;
+            text-align: left;     /* 左对齐文本 */
+            width: 100%;
+        }
+        
+        @media (max-width: 1000px) {
+            .big-video, .mid-video, .small-video { width: 100%; height: auto; }
+            .video-item { flex-direction: column; }
+            .video-item .column { width: 100%; padding: 0; margin-bottom: 1em;}
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWX46EFS5E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JWX46EFS5E');
+    </script>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Kling-Foley: Multimodal Diffusion Transformer for High-Quality Video-to-Audio Generation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Jun Wang, Xijuan Zeng, Chunyu Qiang, Ruilong Chen, Shiyao Wang, Le Wang, Wangjing Zhou, Pengfei Cai, Jiahui Zhao</span>
+                            <span class="author-block">Nan Li, Zihan Li, Yuzhe Liang, Xiaopeng Wang, Haorui Zheng, Ming Wen, Kang Yin, Yiran Wang</span>
+                            <span class="author-block">Nan Li, Feng Deng, Liang Dong, Chen Zhang, Di Zhang, Kun Gai</span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Kuaishou Technology</span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://app.klingai.com/" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span>Product</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://github.com/Kling-Foley/Kling-Foley" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fab fa-github"></i></span>
+                                        <span>GitHub</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2506.19774" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/datasets/Getsum/Kwave-benchmark/tree/main" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span>Benchmark</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaser Videos -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-vcentered is-centered">
+                <div class="column">
+                    <video class="video-player big-video" controls>
+                        <source src="content/v2/video/00.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column">
+                    <video class="video-player big-video" controls>
+                        <source src="content/v2/video/01.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="content/v2/abstract.png" alt="Abstract" style="width: 100%; height: 100%;"/>
+                    </div>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 1.2em;">
+                            We propose Kling-Foley, a large-scale multimodal Video-to-Audio generation model. Taking an input video and an optional text prompt, the model synthesizes high-fidelity audio that is semantically aligned and temporally synchronized with the video content, encompassing elements such as sound effects and background music. Significantly, Kling-Foley can produce audio sequences of arbitrary duration, dynamically adapting to the length of the input video.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method -->
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <h2 class="title is-2">Method</h2>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="content/v2/architecture.png" alt="Architecture" style="width: 100%; height: 90%;"/>
+                </div>
+                <div class="content has-text-justified">
+                    <p style="font-size: 1.2em;">
+                        The core of Kling-Foley is a multimodal-controlled flowmatching model. Text, video, and temporally extracted video frames serve as conditional inputs. The multimodal features are then fused via a Multimodal Joint Conditioning module, which feeds into the MMDit Block for processing. This module predicts VAE latents, which a pretrained mel decoder subsequently reconstructs into a monaural mel-spectrogram. The monaural spectrogram is then converted to stereo spectrogram via a Mono2Stereo module. Finally, the stereo spectrogram is passed through a vocoder to generate the output waveform.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generated Videos Showcase -->
+    <section class="hero is-small is-light">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-3">Various Generated Videos</h2>
+                <!-- Traffic Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Traffic Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/25.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a large truck driving.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/26.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a car engine and car accident collision.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/18.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a racing car accelerating.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/19.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a gas station exploding.</p>
+                    </div>
+                </div>
+                <!-- Animal Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Animal Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player mid-video" controls>
+                            <source src="content/v2/video/6.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The flapping sound of a bird's wings.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/5.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The chirping sound of cicadas.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/7.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a puppy eating ice cream.</p>
+                    </div>
+                </div>
+                <!-- Natural Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Natural Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/11.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a mountain collapsing.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/9.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a volcanic eruption.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player mid-video" controls>
+                            <source src="content/v2/video/10.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of lightning striking.</p>
+                    </div>
+                </div>
+                <!-- Object Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Object Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/24.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of submachine gun firing.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/23.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of snapping a flower stem.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/21.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of punching a car.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/22.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a sniper rifle firing.</p>
+                    </div>
+                </div>
+                <!-- Music Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Music Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player mid-video" controls>
+                            <source src="content/v2/video/13.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of singing to music.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/14.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of cheering to dance music.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/15.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of playing the guitar.</p>
+                    </div>
+                </div>
+                <!-- Voice Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Voice Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/0.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">Footsteps, sound of people talking.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/v2/video/1.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">Sound of running.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player mid-video" controls>
+                            <source src="content/v2/video/3.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">Sound of chewing while eating.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 保证同一时刻只播放一个视频
+        var videos = document.querySelectorAll('video');
+        videos.forEach(function (video) {
+            video.addEventListener('play', function () {
+                videos.forEach(function (otherVideo) {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            }, false);
+        });
+    </script>
+</body>
+</html>
