@@ -31,40 +31,33 @@
             background: #fff;
             object-fit: cover;
             margin-bottom: 8px;
-            /* 保证视频不会自动居中 */
         }
-        
         .big-video { width: 650px; height: 370px; }
         .mid-video, .small-video { width: 850px; height: 500px; }
-        
         .video-item {
             display: flex;
-            justify-content: flex-start; /* 左对齐 */
+            justify-content: flex-start;
             align-items: flex-start;
             flex-wrap: wrap;
             margin-bottom: 2em;
         }
-        
         .video-item .column {
             width: 50%;
-            padding: 0 10px 0 0; /* 右侧留空隙，左对齐 */
+            padding: 0 10px 0 0;
             margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* 保证内容左对齐 */
+            align-items: flex-start;
         }
-        
         .video-item .column:only-child {
-            width: 50%; /* 单视频和双视频宽度一致，左对齐 */
+            width: 50%;
         }
-        
         .caption {
             margin-top: 8px;
             font-size: 1em;
-            text-align: left;     /* 左对齐文本 */
+            text-align: left;
             width: 100%;
         }
-        
         @media (max-width: 1000px) {
             .big-video, .mid-video, .small-video { width: 100%; height: auto; }
             .video-item { flex-direction: column; }
@@ -103,7 +96,7 @@
                             <span class="author-block">Nan Li, Feng Deng, Liang Dong, Chen Zhang, Di Zhang, Kun Gai</span>
                         </div>
                         <div class="is-size-5 publication-authors">
-                            <span class="author-block">Kuaishou Technology</span>
+                            <span class="author-block"><strong>Kuaishou Technology</strong></span>
                         </div>
                         <div class="column has-text-centered">
                             <div class="publication-links">
@@ -148,14 +141,10 @@
         <div class="container is-max-desktop">
             <div class="columns is-vcentered is-centered">
                 <div class="column">
-                    <video class="video-player big-video" controls>
-                        <source src="content/video/00.mp4" type="video/mp4">
-                    </video>
+                    <video class="video-player big-video" controls preload="none" poster="content/image/00.jpg" data-src="content/video/00.mp4"></video>
                 </div>
                 <div class="column">
-                    <video class="video-player big-video" controls>
-                        <source src="content/video/01.mp4" type="video/mp4">
-                    </video>
+                    <video class="video-player big-video" controls preload="none" poster="content/image/01.jpg" data-src="content/video/01.mp4"></video>
                 </div>
             </div>
         </div>
@@ -208,29 +197,21 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/a1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/a1.jpg" data-src="content/video/a1.mp4"></video>
                         <p class="caption">The sound of a tiger roaring.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/a2.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/a2.jpg" data-src="content/video/a2.mp4"></video>
                         <p class="caption">A dinosaur running forward, the sound of its mighty roar.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/6.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/6.jpg" data-src="content/video/6.mp4"></video>
                         <p class="caption">The flapping sound of a bird's wings.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/7.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/7.jpg" data-src="content/video/7.mp4"></video>
                         <p class="caption">The sound of a puppy eating ice cream.</p>
                     </div>
                 </div>
@@ -240,29 +221,21 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/24.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/24.jpg" data-src="content/video/24.mp4"></video>
                         <p class="caption">The sound of submachine gun firing.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/o1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/o1.jpg" data-src="content/video/o1.mp4"></video>
                         <p class="caption">The sound of an electronic pulse from a sound wave detector.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/21.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/21.jpg" data-src="content/video/21.mp4"></video>
                         <p class="caption">The sound of punching a car.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/22.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/22.jpg" data-src="content/video/22.mp4"></video>
                         <p class="caption">The sound of a sniper rifle firing.</p>
                     </div>
                 </div>
@@ -272,23 +245,17 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player mid-video" controls>
-                            <source src="content/video/g1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player mid-video" controls preload="none" poster="content/image/g1.jpg" data-src="content/video/g1.mp4"></video>
                         <p class="caption">The sound of a blacksmith’s hammer on the anvil.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/g2.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/g2.jpg" data-src="content/video/g2.mp4"></video>
                         <p class="caption">The sound of a lumberjack working a chainsaw through a tree trunk.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/g3.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/g3.jpg" data-src="content/video/g3.mp4"></video>
                         <p class="caption">The sound of a construction worker wielding a sledgehammer to demolish a wall.</p>
                     </div>
                 </div>
@@ -298,24 +265,18 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/11.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/11.jpg" data-src="content/video/11.mp4"></video>
                         <p class="caption">The sound of a mountain collapsing.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/n1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/n1.jpg" data-src="content/video/n1.mp4"></video>
                         <p class="caption">The sound of a volcanic eruption.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player mid-video" controls>
-                            <source src="content/video/n2.mp4" type="video/mp4">
-                        </video>
-                        <p class="caption">The sound of waves crashing on the beach.</p>
+                        <video class="video-player mid-video" controls preload="none" poster="content/image/n3.jpg" data-src="content/video/n3.mp4"></video>
+                        <p class="caption">The sound of leaves rustling in the wind.</p>
                     </div>
                 </div>
                 <!-- Traffic Sound Effect -->
@@ -324,15 +285,11 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/18.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/18.jpg" data-src="content/video/18.mp4"></video>
                         <p class="caption">The sound of a racing car accelerating.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/t1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/t1.jpg" data-src="content/video/t1.mp4"></video>
                         <p class="caption">The sound of a steam train chuffing and whistling.</p>
                     </div>
                 </div>
@@ -342,23 +299,17 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player mid-video" controls>
-                            <source src="content/video/13.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player mid-video" controls preload="none" poster="content/image/13.jpg" data-src="content/video/13.mp4"></video>
                         <p class="caption">The sound of singing to music.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/14.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/14.jpg" data-src="content/video/14.mp4"></video>
                         <p class="caption">The sound of cheering to dance music.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/m1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/m1.jpg" data-src="content/video/m1.mp4"></video>
                         <p class="caption">The sound of playing the violin.</p>
                     </div>
                 </div>
@@ -368,23 +319,17 @@
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/0.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/0.jpg" data-src="content/video/0.mp4"></video>
                         <p class="caption">Footsteps, sound of people talking.</p>
                     </div>
                     <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/video/p2.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player big-video" controls preload="none" poster="content/image/p2.jpg" data-src="content/video/p2.mp4"></video>
                         <p class="caption">The sound of a man’s howling, hysterical laughter.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
-                        <video class="video-player mid-video" controls>
-                            <source src="content/video/p1.mp4" type="video/mp4">
-                        </video>
+                        <video class="video-player mid-video" controls preload="none" poster="content/image/p1.jpg" data-src="content/video/p1.mp4"></video>
                         <p class="caption">The soundless joy of a baby's beaming smile.</p>
                     </div>
                 </div>
@@ -401,16 +346,39 @@
     </footer>
 
     <script>
-        // 保证同一时刻只播放一个视频
-        var videos = document.querySelectorAll('video');
-        videos.forEach(function (video) {
-            video.addEventListener('play', function () {
-                videos.forEach(function (otherVideo) {
-                    if (otherVideo !== video) {
-                        otherVideo.pause();
-                    }
+        // 懒加载视频，仅在可见时加载 src
+        document.addEventListener("DOMContentLoaded", function() {
+            var videos = document.querySelectorAll('video[data-src]');
+            if ('IntersectionObserver' in window) {
+                let observer = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            let video = entry.target;
+                            if (!video.src) {
+                                video.src = video.getAttribute('data-src');
+                            }
+                            observer.unobserve(video);
+                        }
+                    });
+                }, {threshold: 0.1});
+                videos.forEach(video => observer.observe(video));
+            } else {
+                // 兼容旧浏览器，全部加载
+                videos.forEach(video => {
+                    video.src = video.getAttribute('data-src');
                 });
-            }, false);
+            }
+
+            // 保证同一时刻只播放一个视频
+            videos.forEach(function (video) {
+                video.addEventListener('play', function () {
+                    videos.forEach(function (otherVideo) {
+                        if (otherVideo !== video) {
+                            otherVideo.pause();
+                        }
+                    });
+                }, false);
+            });
         });
     </script>
 </body>
