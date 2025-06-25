@@ -110,6 +110,7 @@
                                 <span class="link-block">
                                     <a href="https://app.klingai.com/" target="_blank"
                                         class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fas fa-rocket"></i></span>
                                         <span>Product</span>
                                     </a>
                                 </span>
@@ -130,6 +131,7 @@
                                 <span class="link-block">
                                     <a href="https://huggingface.co/datasets/klingfoley/Kling-Audio-Eval" target="_blank"
                                         class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
                                         <span>Benchmark</span>
                                     </a>
                                 </span>
@@ -147,12 +149,12 @@
             <div class="columns is-vcentered is-centered">
                 <div class="column">
                     <video class="video-player big-video" controls>
-                        <source src="content/v2/video/00.mp4" type="video/mp4">
+                        <source src="content/video/00.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="column">
                     <video class="video-player big-video" controls>
-                        <source src="content/v2/video/01.mp4" type="video/mp4">
+                        <source src="content/video/01.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -166,7 +168,7 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Abstract</h2>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="content/v2/abstract.png" alt="Abstract" style="width: 100%; height: 100%;"/>
+                        <img src="content/abstract.png" alt="Abstract" style="width: 100%; height: 100%;"/>
                     </div>
                     <div class="content has-text-justified">
                         <p style="font-size: 1.2em;">
@@ -184,7 +186,7 @@
             <div class="container is-max-desktop">
                 <h2 class="title is-2">Method</h2>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="content/v2/architecture.png" alt="Architecture" style="width: 100%; height: 90%;"/>
+                    <img src="content/architecture.png" alt="Architecture" style="width: 100%; height: 90%;"/>
                 </div>
                 <div class="content has-text-justified">
                     <p style="font-size: 1.2em;">
@@ -199,7 +201,39 @@
     <section class="hero is-small is-light">
         <div class="hero-body">
             <div class="container">
-                <h2 class="title is-3">Various Generated Videos</h2>
+                <h2 class="title is-3">Kling-Foley Demo Gallery</h2>
+                <!-- Animal Sound Effect -->
+                <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                    <h3 class="title is-4">Animal Sound Effect</h3>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/video/a1.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a tiger roaring.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/video/a2.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">A dinosaur running forward, the sound of its mighty roar.</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/video/6.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The flapping sound of a bird's wings.</p>
+                    </div>
+                    <div class="column">
+                        <video class="video-player big-video" controls>
+                            <source src="content/video/7.mp4" type="video/mp4">
+                        </video>
+                        <p class="caption">The sound of a puppy eating ice cream.</p>
+                    </div>
+                </div>
                 <!-- Traffic Sound Effect -->
                 <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
                     <h3 class="title is-4">Traffic Sound Effect</h3>
@@ -207,55 +241,41 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/25.mp4" type="video/mp4">
-                        </video>
-                        <p class="caption">The sound of a large truck driving.</p>
-                    </div>
-                    <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/v2/video/26.mp4" type="video/mp4">
-                        </video>
-                        <p class="caption">The sound of a car engine and car accident collision.</p>
-                    </div>
-                </div>
-                <div class="video-item">
-                    <div class="column">
-                        <video class="video-player big-video" controls>
-                            <source src="content/v2/video/18.mp4" type="video/mp4">
+                            <source src="content/video/18.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of a racing car accelerating.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/19.mp4" type="video/mp4">
+                            <source src="content/video/t1.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The sound of a gas station exploding.</p>
+                        <p class="caption">The sound of a steam train chuffing and whistling.</p>
                     </div>
                 </div>
-                <!-- Animal Sound Effect -->
+                <!-- Tool Sound Effect -->
                 <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
-                    <h3 class="title is-4">Animal Sound Effect</h3>
+                    <h3 class="title is-4">Tool Sound Effect</h3>
                 </div>
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player mid-video" controls>
-                            <source src="content/v2/video/6.mp4" type="video/mp4">
+                            <source src="content/video/g1.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The flapping sound of a bird's wings.</p>
+                        <p class="caption">The sound of a blacksmith’s hammer on the anvil.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/5.mp4" type="video/mp4">
+                            <source src="content/video/g2.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The chirping sound of cicadas.</p>
+                        <p class="caption">The sound of a lumberjack working a chainsaw through a tree trunk.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/7.mp4" type="video/mp4">
+                            <source src="content/video/g3.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The sound of a puppy eating ice cream.</p>
+                        <p class="caption">The sound of a construction worker wielding a sledgehammer to demolish a wall.</p>
                     </div>
                 </div>
                 <!-- Natural Sound Effect -->
@@ -265,13 +285,13 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/11.mp4" type="video/mp4">
+                            <source src="content/video/11.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of a mountain collapsing.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/9.mp4" type="video/mp4">
+                            <source src="content/video/n1.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of a volcanic eruption.</p>
                     </div>
@@ -279,9 +299,9 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player mid-video" controls>
-                            <source src="content/v2/video/10.mp4" type="video/mp4">
+                            <source src="content/video/n2.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The sound of lightning striking.</p>
+                        <p class="caption">The sound of waves crashing on the beach.</p>
                     </div>
                 </div>
                 <!-- Object Sound Effect -->
@@ -291,27 +311,27 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/24.mp4" type="video/mp4">
+                            <source src="content/video/24.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of submachine gun firing.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/23.mp4" type="video/mp4">
+                            <source src="content/video/o1.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The sound of snapping a flower stem.</p>
+                        <p class="caption">The sound of an electronic pulse from a sound wave detector.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/21.mp4" type="video/mp4">
+                            <source src="content/video/21.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of punching a car.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/22.mp4" type="video/mp4">
+                            <source src="content/video/22.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of a sniper rifle firing.</p>
                     </div>
@@ -323,7 +343,7 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player mid-video" controls>
-                            <source src="content/v2/video/13.mp4" type="video/mp4">
+                            <source src="content/video/13.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of singing to music.</p>
                     </div>
@@ -331,15 +351,15 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/14.mp4" type="video/mp4">
+                            <source src="content/video/14.mp4" type="video/mp4">
                         </video>
                         <p class="caption">The sound of cheering to dance music.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/15.mp4" type="video/mp4">
+                            <source src="content/video/m1.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">The sound of playing the guitar.</p>
+                        <p class="caption">The sound of playing the violin.</p>
                     </div>
                 </div>
                 <!-- Voice Sound Effect -->
@@ -349,23 +369,23 @@
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/0.mp4" type="video/mp4">
+                            <source src="content/video/0.mp4" type="video/mp4">
                         </video>
                         <p class="caption">Footsteps, sound of people talking.</p>
                     </div>
                     <div class="column">
                         <video class="video-player big-video" controls>
-                            <source src="content/v2/video/1.mp4" type="video/mp4">
+                            <source src="content/video/p2.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">Sound of running.</p>
+                        <p class="caption">The sound of a man’s howling, hysterical laughter.</p>
                     </div>
                 </div>
                 <div class="video-item">
                     <div class="column">
                         <video class="video-player mid-video" controls>
-                            <source src="content/v2/video/3.mp4" type="video/mp4">
+                            <source src="content/video/p1.mp4" type="video/mp4">
                         </video>
-                        <p class="caption">Sound of chewing while eating.</p>
+                        <p class="caption">The soundless joy of a baby's beaming smile.</p>
                     </div>
                 </div>
             </div>
