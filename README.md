@@ -9,7 +9,9 @@ Kuaishou Technology
 <a href='https://arxiv.org/abs/2506.19774'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 ![views since 2025/06/25](https://komarev.com/ghpvc/?username=kwavefoley&color=5865f2)
 
-
+## Benchmark
+We also open-source an industrial-level benchmark Kling-Audio-Eval on [HuggingFace](https://huggingface.co/datasets/klingfoley/Kling-Audio-Eval) 🤗 .
+The evaluation code is from [av-benchmark](https://github.com/hkchengrex/av-benchmark.git).
  
 ## Citation
 ```
