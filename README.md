@@ -24,7 +24,7 @@
 
   <!-- 🎬 Showcase -->
   <p><img src="./content/abstract.png"></p>
-  <p>🔥 For more results, visit our <a href="https://github.com/klingfoley/Kling-Foley" target="_blank"><strong>homepage</strong></a> 🔥</p>
+  <p>🔥 For more results, visit our <a href="https://klingfoley.github.io/Kling-Foley/" target="_blank"><strong>homepage</strong></a> 🔥</p>
 
 </div>
 
