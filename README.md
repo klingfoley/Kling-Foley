@@ -23,7 +23,7 @@
   </p>
 
   <!-- 🎬 Showcase -->
-  <p><video class="video-player" controls poster="./content/image/00.webp" data-src="./content/video/00.mp4"></video></p>
+  <p><img src="./content/abstract.png"></p>
   <p>🔥 For more results, visit our <a href="https://github.com/klingfoley/Kling-Foley" target="_blank"><strong>homepage</strong></a> 🔥</p>
 
 </div>
